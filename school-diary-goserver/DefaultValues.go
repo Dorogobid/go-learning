@@ -59,7 +59,7 @@ func insertDefaults() {
 			Login: "student1",
 			Password: "student1",
 			DateOfBirth: "2004-09-11",
-			SchoolClassID: schoolClassID,
+			SchoolClassId: schoolClassID,
 		})
 	}
 }

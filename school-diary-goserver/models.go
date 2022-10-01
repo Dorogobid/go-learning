@@ -33,7 +33,7 @@ type Student struct {
 	Login string		`json:"login"`
 	Password string		`json:"password"`
 	DateOfBirth string	`json:"dateOfBirth"`
-	SchoolClass uuid.UUID 	`json:"schoolClass"`
+	SchoolClassId uuid.UUID 	`json:"schoolClassId"`
 }
 
 type Mark struct {
