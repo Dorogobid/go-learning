@@ -52,7 +52,7 @@ func insertDefaults() {
 			DateOfBirth: "1979-05-11"})			
 	}	
 	if len(students) == 0 {
-		schoolClassID, _ := uuid.Parse("acfc302c-1cb1-4b15-93b7-96db4d6c5025")
+		schoolClassID, _ := uuid.Parse("7e9244f1-19a5-4b8d-99b9-e5659d250e50")
 		DB.Create(&Student{
 			Name: "Міллі Боббі Браун",
 			Photo: "student1.jpeg",

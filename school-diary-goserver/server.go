@@ -26,8 +26,8 @@ func main() {
 	}))
 
 	api.GET("/subjects", getAllSubjects)
-	api.GET("/schoolclasses", getAllSchoolClasses)
-	api.GET("/schoolclasses/:id", getSchoolClassesByID)
+	api.GET("/school_classes", getAllSchoolClasses)
+	api.GET("/school_classes/:id", getSchoolClassesByID)
 	api.POST("/login", apiLogin)
 	api.GET("/teachers/:login", getTeachersByLogin)
 	api.GET("/marks/1/:id", getMarksByStudentID)
