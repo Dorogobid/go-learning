@@ -37,13 +37,13 @@ func apiLogin(c echo.Context) error {
 		return err
 	}
 	if l.UserType == "teacher" {
-		DB.Where("login = ? and password = ?", l.UserName, l.Pass).Find(&teachers)
+		DB.Where("login = ? and password = ?", l.UserName, StrToHash(l.Pass)).Find(&teachers)
 		if len(teachers) > 0 {
 			return c.String(http.StatusOK, "")
 		}
 		return c.String(http.StatusForbidden, "")
 	} else if l.UserType == "student" {
-		DB.Where("login = ? and password = ?", l.UserName, l.Pass).Find(&students)
+		DB.Where("login = ? and password = ?", l.UserName, StrToHash(l.Pass)).Find(&students)
 		if len(students) > 0 {
 			return c.String(http.StatusOK, "")
 		}

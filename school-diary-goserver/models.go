@@ -40,18 +40,18 @@ type Mark struct {
 	ID uuid.UUID		`gorm:"primaryKey;type:uuid" json:"id"`
 	MarkDate string		`json:"markDate"`
 	Mark uint			`json:"mark"`
-	TeacherID uuid.UUID
-	StudentID uuid.UUID
-	SubjectID uuid.UUID
+	TeacherID uuid.UUID	`json:"teacherId"`
+	StudentID uuid.UUID	`json:"studentId"`
+	SubjectID uuid.UUID	`json:"subjectId"`
 }
 
 type MarkFull struct {
 	ID uuid.UUID		`gorm:"type:uuid" json:"id"`
 	MarkDate string		`json:"markDate"`
 	Mark uint			`json:"mark"`
-	TeacherID uuid.UUID
-	StudentID uuid.UUID
-	SubjectID uuid.UUID
+	TeacherID uuid.UUID	`json:"teacherId"`
+	StudentID uuid.UUID	`json:"studentId"`
+	SubjectID uuid.UUID	`json:"subjectId"`
 	SubjectName string	`json:"subjectName"`
 	TeacherName string	`json:"teacherName"`	
 	StudentName string	`json:"studentName"`

@@ -42,13 +42,13 @@ func insertDefaults() {
 			Name: "Девід Гарбор", 
 			Photo: "teacher1.jpeg", 
 			Login: "teacher1", 
-			Password: "teacher1", 
+			Password: StrToHash("teacher1"), 
 			DateOfBirth: "1988-09-10"})
 		DB.Create(&Teacher{
 			Name: "Вайнона Райдер", 
 			Photo: "teacher2.jpeg", 
 			Login: "teacher2", 
-			Password: "teacher2", 
+			Password: StrToHash("teacher2"), 
 			DateOfBirth: "1979-05-11"})			
 	}	
 	if len(students) == 0 {
@@ -57,7 +57,7 @@ func insertDefaults() {
 			Name: "Міллі Боббі Браун",
 			Photo: "student1.jpeg",
 			Login: "student1",
-			Password: "student1",
+			Password: StrToHash("student1"),
 			DateOfBirth: "2004-09-11",
 			SchoolClassId: schoolClassID,
 		})

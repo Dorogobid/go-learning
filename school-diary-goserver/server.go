@@ -20,6 +20,11 @@ func main() {
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{Format: "host=${host},method=${method}, uri=${uri}, status=${status}\n"}))
 
 	api := e.Group("/api")
+	
+	api.Use(middleware.KeyAuth(func(key string, c echo.Context) (bool, error) {
+		return key == "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ98Ng09a8", nil
+	  }))
+
 	api.GET("/subjects", getAllSubjects)
 	api.GET("/schoolclasses", getAllSchoolClasses)
 	api.GET("/schoolclasses/:id", getSchoolClassesByID)
