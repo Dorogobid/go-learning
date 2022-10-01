@@ -23,7 +23,7 @@ func main() {
 	
 	api.Use(middleware.KeyAuth(func(key string, c echo.Context) (bool, error) {
 		return key == "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ98Ng09a8", nil
-	  }))
+	}))
 
 	api.GET("/subjects", getAllSubjects)
 	api.GET("/schoolclasses", getAllSchoolClasses)
