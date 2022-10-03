@@ -62,21 +62,21 @@ func getTeachersByLogin(c echo.Context) error {
 func getSchoolClassesByID(c echo.Context) error {
 	var schoolClasses []SchoolClass
 	id := c.Param("id")
-	DB.Where("id = ?", id).Find(&schoolClasses)
+	DB.Where("lower(id) = ?", id).Find(&schoolClasses)
 	return c.JSON(http.StatusOK, schoolClasses)
 }
 
 func getMarksByStudentID(c echo.Context) error {
 	var marks []MarkFull
 	id := c.Param("id")
-	DB.Raw("SELECT m.*, s.subject_name as subject_name, t.name as teacher_name, st.name as student_name FROM marks as m, subjects as s, teachers t, students st where s.id = m.subject_id and t.id = m.teacher_id and m.student_id=st.id and student_id = ?", id).Find(&marks)
+	DB.Raw("SELECT m.*, s.subject_name as subject_name, t.name as teacher_name, st.name as student_name FROM marks as m, subjects as s, teachers t, students st where s.id = m.subject_id and t.id = m.teacher_id and m.student_id=st.id and lower(student_id) = ?", id).Find(&marks)
 	return c.JSON(http.StatusOK, marks)
 }
 
 func getMarksByTeacherID(c echo.Context) error {
 	var marks []MarkFull
 	id := c.Param("id")
-	DB.Raw("SELECT m.*, s.subject_name as subject_name, t.name as teacher_name, st.name as student_name FROM marks as m, subjects as s, teachers t, students st where s.id = m.subject_id and t.id = m.teacher_id and m.student_id=st.id and teacher_id = ?", id).Find(&marks)
+	DB.Raw("SELECT m.*, s.subject_name as subject_name, t.name as teacher_name, st.name as student_name FROM marks as m, subjects as s, teachers t, students st where s.id = m.subject_id and t.id = m.teacher_id and m.student_id=st.id and lower(teacher_id) = ?", id).Find(&marks)
 	return c.JSON(http.StatusOK, marks)
 }
 

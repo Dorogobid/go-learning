@@ -21,9 +21,9 @@ func main() {
 
 	api := e.Group("/api")
 	
-	api.Use(middleware.KeyAuth(func(key string, c echo.Context) (bool, error) {
-		return key == "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ98Ng09a8", nil
-	}))
+	// api.Use(middleware.KeyAuth(func(key string, c echo.Context) (bool, error) {
+	// 	return key == "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ98Ng09a8", nil
+	// }))
 
 	api.GET("/subjects", getAllSubjects)
 	api.GET("/school_classes", getAllSchoolClasses)
