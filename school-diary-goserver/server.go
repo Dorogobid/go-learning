@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/glebarez/sqlite"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -21,9 +21,9 @@ func main() {
 
 	api := e.Group("/api")
 	
-	// api.Use(middleware.KeyAuth(func(key string, c echo.Context) (bool, error) {
-	// 	return key == "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ98Ng09a8", nil
-	// }))
+	api.Use(middleware.KeyAuth(func(key string, c echo.Context) (bool, error) {
+	 	return key == "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ98Ng09a8", nil
+	}))
 
 	api.GET("/subjects", getAllSubjects)
 	api.GET("/school_classes", getAllSchoolClasses)
@@ -37,7 +37,7 @@ func main() {
 	api.GET("/students", getAllStudents)
 	api.GET("/students/:login", getStudentsByLogin)
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":8081"))
 }
 
 func connectToDb() *gorm.DB {
